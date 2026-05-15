@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
+<!-- saved from url=(0045)file:///C:/Users/javie/Downloads/index_4.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Mi Equipo">
   <meta name="theme-color" content="#007AFF">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="manifest" href="file:///C:/Users/javie/Downloads/manifest.json">
+  <link rel="apple-touch-icon" href="file:///C:/Users/javie/Downloads/icons/icon-192.png">
   <title>Mi Equipo</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -108,6 +108,16 @@
     .note-del { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text3); padding: 0 2px; flex-shrink: 0; }
     .empty-note { font-size: 13px; color: var(--text3); padding: 8px 0 12px; text-align: center; }
     .no-member-msg { text-align: center; padding: 32px 0; color: var(--text3); font-size: 13px; }
+    .eq-row { display: flex; align-items: center; padding: 12px 14px; border-bottom: 0.5px solid var(--border); gap: 10px; }
+    .eq-row:last-child { border-bottom: none; }
+    .eq-input { flex: 1; border: none; background: none; font-size: 15px; color: var(--text); font-family: inherit; padding: 0; outline: none; }
+    .eq-del { background: var(--ir); border: none; color: #fff; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .eq-del:active { opacity: .7; }
+    .eq-add { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--ib); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
+    .eq-add:active { opacity: .7; }
+    .eq-save { width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid var(--ib); background: none; color: var(--ib); font-size: 15px; font-weight: 600; cursor: pointer; }
+    .eq-save:active { opacity: .7; }
+    .eq-note { font-size: 12px; text-align: center; margin-top: 10px; min-height: 18px; }
     .stat-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
     .stat-box { background: var(--igr6); border-radius: 12px; padding: 12px 14px; }
     .stat-num { font-size: 26px; font-weight: 700; }
@@ -143,26 +153,58 @@
   <div id="view-inicio" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
     <div class="navbar">
       <div class="nav-title">Mi equipo</div>
-      <div class="nav-date" id="navDate"></div>
+      <div class="nav-date" id="navDate">Viernes, 15 de mayo de 2026</div>
     </div>
     <div class="scroll-content" id="scrollInicio">
       <div class="today-banner">
         <span class="today-badge">Hoy</span>
-        <span class="today-txt" id="todayTxt"></span>
+        <span class="today-txt" id="todayTxt">Viernes, 15 de mayo de 2026</span>
       </div>
       <div class="ios-section">
         <div class="ios-section-title">Trabajadores</div>
-        <div class="team-row" id="teamRow"></div>
+        <div class="team-row" id="teamRow"><div class="team-chip" data-m="Ana García">
+      <div class="t-avatar " style="background:#E8F1FF;color:#0C447C">AG</div>
+      <span class="t-name">Ana</span>
+    </div><div class="team-chip" data-m="Carlos López">
+      <div class="t-avatar " style="background:#E8F8EC;color:#27500A">CL</div>
+      <span class="t-name">Carlos</span>
+    </div><div class="team-chip" data-m="María Ruiz">
+      <div class="t-avatar " style="background:#FFF4E5;color:#633806">MR</div>
+      <span class="t-name">María</span>
+    </div><div class="team-chip" data-m="Pedro Soto">
+      <div class="t-avatar " style="background:#F3EAFF;color:#3C3489">PS</div>
+      <span class="t-name">Pedro</span>
+    </div><div class="team-chip" data-m="Laura Vega">
+      <div class="t-avatar " style="background:#FFF0EF;color:#791F1F">LV</div>
+      <span class="t-name">Laura</span>
+    </div><div class="team-chip" data-m="Jorge Mora">
+      <div class="t-avatar " style="background:#E1F5EE;color:#085041">JM</div>
+      <span class="t-name">Jorge</span>
+    </div></div>
       </div>
       <div class="ios-section">
         <div class="week-card">
           <div class="week-nav-row">
             <button class="wn-btn" id="prevW" aria-label="Semana anterior">‹</button>
-            <span class="wn-label" id="wCardLbl"></span>
+            <span class="wn-label" id="wCardLbl">11/5 – 17/5</span>
             <button class="wn-btn" id="nextW" aria-label="Semana siguiente">›</button>
           </div>
-          <div class="week-days-head" id="daysHead"></div>
-          <div class="week-days-grid" id="daysGrid"></div>
+          <div class="week-days-head" id="daysHead"><div class="wdh ">L</div><div class="wdh ">M</div><div class="wdh ">X</div><div class="wdh ">J</div><div class="wdh today-h">V</div><div class="wdh ">S</div><div class="wdh ">D</div></div>
+          <div class="week-days-grid" id="daysGrid"><div class="day-cell  " data-key="null|2026-05-11" data-date="2026-05-11" data-di="0">
+      <span class="day-num">11</span><div style="height:9px"></div>
+    </div><div class="day-cell  " data-key="null|2026-05-12" data-date="2026-05-12" data-di="1">
+      <span class="day-num">12</span><div style="height:9px"></div>
+    </div><div class="day-cell  " data-key="null|2026-05-13" data-date="2026-05-13" data-di="2">
+      <span class="day-num">13</span><div style="height:9px"></div>
+    </div><div class="day-cell  " data-key="null|2026-05-14" data-date="2026-05-14" data-di="3">
+      <span class="day-num">14</span><div style="height:9px"></div>
+    </div><div class="day-cell today-c " data-key="null|2026-05-15" data-date="2026-05-15" data-di="4">
+      <span class="day-num">15</span><div style="height:9px"></div>
+    </div><div class="day-cell  " data-key="null|2026-05-16" data-date="2026-05-16" data-di="5">
+      <span class="day-num">16</span><div style="height:9px"></div>
+    </div><div class="day-cell  " data-key="null|2026-05-17" data-date="2026-05-17" data-di="6">
+      <span class="day-num">17</span><div style="height:9px"></div>
+    </div></div>
         </div>
       </div>
       <div id="sheetArea"></div>
@@ -173,7 +215,7 @@
   <div id="view-resumen" style="display:none;flex-direction:column;flex:1;overflow:hidden">
     <div class="navbar">
       <div class="nav-title">Resumen semanal</div>
-      <div class="nav-date" id="rsmDate"></div>
+      <div class="nav-date" id="rsmDate">11/5 – 17/5</div>
     </div>
     <div class="scroll-content">
       <div class="ios-section">
@@ -187,19 +229,41 @@
     </div>
   </div>
 
+  <!-- Vista Equipo -->
+  <div id="view-equipo" style="display:none;flex-direction:column;flex:1;overflow:hidden">
+    <div class="navbar">
+      <div class="nav-title">Equipo</div>
+      <div class="nav-date">Agregar, editar o eliminar trabajadores</div>
+    </div>
+    <div class="scroll-content">
+      <div class="ios-section">
+        <div class="ios-list" id="eqList"></div>
+      </div>
+      <button class="eq-add" id="eqAdd">+ Agregar trabajador</button>
+      <button class="eq-save" id="eqSave">Guardar cambios</button>
+      <div class="eq-note" id="eqNote"></div>
+    </div>
+  </div>
+
   <!-- Tab bar -->
   <div class="tabbar">
     <div class="tb-item active" data-v="inicio">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        <rect x="3" y="4" width="18" height="18" rx="3"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
       Inicio
     </div>
     <div class="tb-item" data-v="resumen">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+        <line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line>
       </svg>
       Resumen
+    </div>
+    <div class="tb-item" data-v="equipo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+      Equipo
     </div>
   </div>
 </div>
@@ -489,7 +553,9 @@ document.querySelectorAll('.tb-item').forEach(t=>t.addEventListener('click',func
   const v=this.dataset.v;
   document.getElementById('view-inicio').style.display=v==='inicio'?'flex':'none';
   document.getElementById('view-resumen').style.display=v==='resumen'?'flex':'none';
+  document.getElementById('view-equipo').style.display=v==='equipo'?'flex':'none';
   if(v==='resumen'){renderRtInd();renderRtEquipo();document.getElementById('rsmDate').textContent=wLabel();}
+  if(v==='equipo') renderEqList();
 }));
 
 document.querySelectorAll('.rsm-tab').forEach(t=>t.addEventListener('click',function(){
@@ -506,9 +572,48 @@ renderDateHeader();
 renderTeam();
 renderGrid();
 
+function renderEqList(){
+  const el=document.getElementById('eqList');
+  el.innerHTML=members.map((m,i)=>{
+    const[bg,fg]=MCOLORS[i%MCOLORS.length].split(':');
+    return`<div class="eq-row">
+      <div class="t-avatar" style="background:${bg};color:${fg};width:36px;height:36px;font-size:12px;border:none">${ini(m||'?')}</div>
+      <input class="eq-input" value="${m}" data-i="${i}" placeholder="Nombre del trabajador">
+      <button class="eq-del" data-i="${i}" aria-label="Eliminar">×</button>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.eq-input').forEach(inp=>inp.addEventListener('input',function(){
+    members[parseInt(this.dataset.i)]=this.value;
+  }));
+  el.querySelectorAll('.eq-del').forEach(b=>b.addEventListener('click',function(){
+    members.splice(parseInt(this.dataset.i),1);
+    localStorage.setItem('mieq_members',JSON.stringify(members));
+    renderEqList();renderTeam();
+  }));
+}
+
+document.getElementById('eqAdd').addEventListener('click',()=>{
+  members.push('Nuevo trabajador');
+  renderEqList();
+  const inputs=document.querySelectorAll('.eq-input');
+  const last=inputs[inputs.length-1];
+  last.focus();last.select();
+});
+
+document.getElementById('eqSave').addEventListener('click',()=>{
+  document.querySelectorAll('.eq-input').forEach((inp,i)=>{members[i]=inp.value.trim()||'Sin nombre';});
+  localStorage.setItem('mieq_members',JSON.stringify(members));
+  renderTeam();renderGrid();
+  const n=document.getElementById('eqNote');
+  n.style.color='#34C759';
+  n.textContent='✓ Equipo actualizado correctamente';
+  setTimeout(()=>n.textContent='',2500);
+});
+
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
